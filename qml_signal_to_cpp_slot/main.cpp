@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
     Message msg;
     auto context = engine.rootContext();
-    context->setContextProperty("msgobj", &msg);    // allow usage of object msg under name 'msgobj' in QML code.
+    context->setContextProperty("messenger", &msg);    // allow usage of object msg under name 'msgobj' in QML code.
 
     engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
     if (engine.rootObjects().isEmpty())

@@ -10,9 +10,14 @@ public:
     explicit Message(QObject *parent = nullptr);
 
 signals:
+    void messageChanged(QString value);
 
 public slots:
     void doMessageChange();
+
+private:
+    int m_counter{0};
+    QString m_message;
 };
 
 #endif // MESSAGE_H

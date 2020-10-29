@@ -1,12 +1,14 @@
 #include "message.h"
-#include <iostream>
 
-Message::Message(QObject *parent) : QObject(parent)
+Message::Message(QObject *parent)
+    : QObject(parent)
+    , m_counter(0)
+    , m_message("Hello World number [%1]")
 {
 
 }
 
 void Message::doMessageChange()
 {
-    std::cout << "We are in C++ code" << std::endl;
+    emit messageChanged(m_message.arg(++m_counter));
 }
