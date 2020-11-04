@@ -8,15 +8,10 @@ Window {
     height: 480
     title: qsTr("Hello World")
 
-    Connections {
-        target: messenger
-        onMessageChanged: textId.text = value; // see void Message::messageChanged(QString value);
-    }
-
     Column {
         Text {
             id: textId
-            text: qsTr("Hello New World")
+            text: messenger.message
         }
         Button {
             text: "Change Text"
