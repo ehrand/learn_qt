@@ -8,6 +8,10 @@ Window {
     height: 480
     title: qsTr("Hello World")
 
+    Component.onCompleted: {
+        messenger.message = "Startup messaged set from QML [%1]"
+    }
+
     Column {
         Text {
             id: textId
