@@ -12,6 +12,12 @@ Window {
         messenger.message = "Startup messaged set from QML [%1]"
     }
 
+    function javaScriptFunction(value)
+    {
+        print("C++ called the javaScriptFunction with the parameter: " + value);
+        return "This message is returned from javaScriptFunction";
+    }
+
     Column {
         Text {
             id: textId
@@ -20,6 +26,13 @@ Window {
         Button {
             text: "Change Text"
             onClicked: messenger.doMessageChange()
+        }
+        Button {
+            text: "Talk to C++"
+            onClicked: {
+                var result = messenger.sendMessageFromCpp("QML button clicked")
+                print("QML received " + result)
+            }
         }
     }
 }
